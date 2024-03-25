@@ -1,37 +1,24 @@
 package in.act.cdac;
 
-public class Program4 {
-	
-	
-	
-	static int getMin(int arr[],int n) {
-		int result=arr[0];
-		for(int i=0;i<n;i++) {
-			result=Math.min(result,arr[i]);
-			
-		}
-		return result;
-		
-	}
-	
-	static int getMax(int arr[],int n) {
-		int result=arr[0];
-		for(int i=0;i<arr.length;i++) {
-			result=Math.max(result, arr[i]);
-		}
-		return result;
-		
-	}
-	
-	
+import java.util.Scanner;
 
+public class Program4 {
 	public static void main(String[] args) {
-		int arr[]= {8,7,2,9};
-		int n=arr.length;
-		System.out.println("Min element in array: "+getMin(arr,n));
-		System.out.println("Max element in array: "+getMax(arr,n));
-		
-		
+		Scanner sc=new Scanner(System.in);
+		try {
+			System.out.println("Enter number:");
+			int num=sc.nextInt();
+			if(num%2!=0) {
+				throw new ArithmeticException("Number is odd");
+			}
+		}catch(ArithmeticException ex){
+			System.out.println("Inside catch block");
+			ex.printStackTrace();
+			
+		}finally {
+			sc.close();
+			System.out.println("Inside finally block");
+		}
 	}
 
 }

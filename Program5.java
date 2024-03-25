@@ -1,35 +1,24 @@
 package in.act.cdac;
 
+import java.util.Scanner;
+
 public class Program5 {
-	static int thirdMax(int arr[],int n ) {
-		if(n<3) {
-			System.out.println("Invalid array");
-		}
+	public static void main(String[] args) {
+		int arr[]=new int[3];
+		Scanner sc=new Scanner(System.in);
 		
-		int first=arr[0],second =Integer.MIN_VALUE,third=Integer.MIN_VALUE;
-		for(int i=0;i<n;i++) {
-			if(arr[i]>first) {
-			   third=second;
-			   second=first;
-			   first=arr[i];
-			}else if(arr[i]>second) {
-				third=second;
-				second =first;
-				
-			}else if(arr[i]>third) {
-				third=arr[i];
+			try {
+				for(int i=0;i<4;i++) {
+					arr[i]=sc.nextInt();
+				}
+			}catch(ArrayIndexOutOfBoundsException ex) {
+				System.out.println("Inside catch block");
+				ex.printStackTrace();
+			}finally {
+				sc.close();
+				System.out.println("Inside finally block");
 			}
 		}
-		return third;
-		
 	}
-	
 
-	public static void main(String[] args) {
-		int arr[]= { 16,82,45,67 };
-		 int n=arr.length;
-		 System.out.println("Third max num: "+thirdMax(arr,n));
-		 
 
-}
-}
